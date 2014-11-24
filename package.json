@@ -1,0 +1,32 @@
+{
+  "name": "hubot-awssns-slack",
+  "description": "Hubot script for AWS SNS to emit slack attachment",
+  "version": "0.0.4",
+  "author": "Kenan Shifflett <kenan.shifflett@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spanishdict/hubot-awssns-slack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spanishdict/hubot-awssns-slack/issues"
+  },
+  "dependencies": {
+    "body-parser": "1.9.3"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.7",
+    "mocha": "*",
+    "chai": "*",
+    "sinon-chai": "*",
+    "sinon": "*"
+  },
+  "main": "index.coffee",
+  "scripts": {
+    "test": "script/test"
+  }
+}
