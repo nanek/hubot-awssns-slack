@@ -61,10 +61,11 @@ module.exports = (robot) ->
           console.log str
 
     else
-      isAlert = data.Subject?.match /ALARM/
-      color   = if isAlert then "danger" else "good"
-      prefix  = if isAlert then "Alert" else "Back to Normal"
-      emoji   = if isAlert then ":warning:" else ":thumbsup:"
+      topicName = data.TopicArn?.split(":").slice(-1)
+      isAlert   = data.Subject?.match /ALARM/
+      color     = if isAlert then "danger" else "good"
+      prefix    = if isAlert then "Alert" else "Back to Normal"
+      emoji     = if isAlert then ":warning:" else ":thumbsup:"
 
       fields = [
         title: data.Subject
@@ -77,7 +78,7 @@ module.exports = (robot) ->
       robot.emit 'slack-attachment',
         message:
           room:       room
-          username:   'aws'
+          username:   topicName
           icon_emoji: emoji
         content:
           text:     ''
