@@ -61,7 +61,7 @@ module.exports = (robot) ->
           console.log str
 
     else
-      topicName = data.TopicArn?.split(":").slice(-1)
+      topicName = data.TopicArn?.split(":").slice(-1)[0]
       isAlert   = data.Subject?.match /ALARM/
       color     = if isAlert then "danger" else "good"
       prefix    = if isAlert then "Alert" else "Back to Normal"

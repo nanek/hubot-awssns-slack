@@ -1,7 +1,7 @@
 {
   "name": "hubot-awssns-slack",
   "description": "Hubot script for AWS SNS to emit slack attachment",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Kenan Shifflett <kenan.shifflett@gmail.com>",
   "license": "MIT",
   "keywords": [
