@@ -67,11 +67,32 @@ module.exports = (robot) ->
       prefix    = if isAlert then "Alert" else "Back to Normal"
       emoji     = if isAlert then ":warning:" else ":thumbsup:"
 
-      fields = [
-        title: data.Subject
-        value: data.Message
-        short: false
-      ]
+      # Attempt to parse the message if AWS Alarm Notification.
+      try
+        alarmObject = JSON.parse data.Message
+      catch e
+
+      if alarmObject?.AlarmName
+        fields = [
+          title: 'Name'
+          value: alarmObject.AlarmName
+          short: true
+        ,
+          title: 'State Change'
+          value: alarmObject.OldStateValue + ' -> ' + alarmObject.NewStateValue
+          short: true
+        ,
+          title: 'Reason for State Change'
+          value: alarmObject.NewStateReason
+          short: false
+        ]
+
+      else
+        fields = [
+          title: data.Subject
+          value: data.Message
+          short: false
+        ]
 
       fallback = "#{data.Subject}"
 
