@@ -85,6 +85,10 @@ module.exports = (robot) ->
           title: 'Reason for State Change'
           value: alarmObject.NewStateReason
           short: false
+        ,
+          title: 'Description'
+          value: alarmObject.AlarmDescription
+          short: false
         ]
 
       else
